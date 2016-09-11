@@ -12,13 +12,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
     EditText etNama, etTelfon, etEmail;
     RadioGroup rgJK;
     CheckBox cbConceptor, cbCoder, cbDesign, cbAnalist, cbDatabase, cbTester;
     Spinner spKota;
-    TextView tvNama, tvTelfon, tvEmail, tvJK, tvBidang, tvKota;
-
+    TextView tvNama, tvTelfon, tvEmail, tvJK, tvBidang, tvKota, TView1, tbidang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
         etEmail = (EditText) findViewById(R.id.editTextEmail);
 
         rgJK = (RadioGroup) findViewById(R.id.radioGroupJK);
+        TView1 = (TextView) findViewById(R.id.TJK);
 
+        tbidang = (TextView) findViewById(R.id.TTBidang);
         cbConceptor = (CheckBox) findViewById(R.id.checkBoxConceptor);
         cbCoder = (CheckBox) findViewById(R.id.checkBoxCoder);
         cbDesign = (CheckBox) findViewById(R.id.checkBoxDesign);
@@ -56,39 +56,78 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doClick() {
+        if (isValid()) {
+            String nama = etNama.getText().toString();
+            String bidang = "";
+            String telfon = etTelfon.getText().toString();
+            String email = etEmail.getText().toString();
+            String JK = null;
+            int starlen = bidang.length();
+            String kota = spKota.getSelectedItem().toString();
+
+            tvNama.setText(nama);
+            tvTelfon.setText("" + telfon);
+            tvEmail.setText(email);
+
+            if (rgJK.getCheckedRadioButtonId() != -1) {
+                RadioButton rb = (RadioButton)
+                        findViewById(rgJK.getCheckedRadioButtonId());
+                JK = rb.getText().toString();
+            }
+            if (JK == null) {
+                tvJK.setText("Anda Belum Memilih Jenis Kelamin");
+                TView1.setError("Pilih Jenis Kelamin");
+            } else {
+                TView1.setError(null);
+                tvJK.setText(JK);
+            }
+
+            if (cbConceptor.isChecked()) bidang += cbConceptor.getText() + "\n";
+            if (cbCoder.isChecked()) bidang += cbCoder.getText() + "\n";
+            if (cbDesign.isChecked()) bidang += cbDesign.getText() + "\n";
+            if (cbAnalist.isChecked()) bidang += cbAnalist.getText() + "\n";
+            if (cbDatabase.isChecked()) bidang += cbDatabase.getText() + "\n";
+            if (cbTester.isChecked()) bidang += cbTester.getText() + "\n";
+            if (bidang.length() == starlen) bidang += "Anda Belum Memilih Bidang";
+            tvBidang.setText(bidang);
+
+            tvKota.setText(kota);
+        }
+    }
+
+    private boolean isValid() {
+        boolean valid = true;
+
         String nama = etNama.getText().toString();
-        tvNama.setText(nama);
-
-        int telfon = Integer.parseInt(etTelfon.getText().toString());
-        tvTelfon.setText("" + telfon);
-
+        String telfon = etTelfon.getText().toString();
         String email = etEmail.getText().toString();
-        tvEmail.setText(email);
 
-        String JK = null;
-        if (rgJK.getCheckedRadioButtonId() != -1) {
-            RadioButton rb = (RadioButton)
-                    findViewById(rgJK.getCheckedRadioButtonId());
-            JK = rb.getText().toString();
-        }
-        if (JK == null) {
-            tvJK.setText("Anda Belum Memilih Jenis Kelamin");
+        if (nama.isEmpty()) {
+            etNama.setError("Nama Belum diisi");
+            valid = false;
+        } else if (nama.length() < 3) {
+            etNama.setError("Nama Minimal 3 karakter");
+            valid = false;
         } else {
-            tvJK.setText(JK);
+            etNama.setError(null);
+        }
+        if (telfon.isEmpty()) {
+            etTelfon.setError("Nomor Telfon Belum diisi");
+        } else if (telfon.length() < 12) {
+            etTelfon.setError("Nomor : 628xxxxxxxxxx");
+        } else if (telfon.length() > 13) {
+            etTelfon.setError("Nomor : 628xxxxxxxxxx");
+        } else {
+            etTelfon.setError(null);
         }
 
-        String bidang = "";
-        int starlen = bidang.length();
-        if (cbConceptor.isChecked()) bidang += cbConceptor.getText() + "\n";
-        if (cbCoder.isChecked()) bidang += cbCoder.getText() + "\n";
-        if (cbDesign.isChecked()) bidang += cbDesign.getText() + "\n";
-        if (cbAnalist.isChecked()) bidang += cbAnalist.getText() + "\n";
-        if (cbDatabase.isChecked()) bidang += cbDatabase.getText() + "\n";
-        if (cbTester.isChecked()) bidang += cbTester.getText() + "\n";
-        if (bidang.length() == starlen) bidang += "";
-        tvBidang.setText(bidang);
-
-        String kota = spKota.getSelectedItem().toString();
-        tvKota.setText(kota);
+        if (email.isEmpty()) {
+            etEmail.setError("Email Tidak Boleh Kosog");
+        } else if (email.length() < 8) {
+            etEmail.setError("Email Anda Tidak Valid");
+        } else {
+            etEmail.setError(null);
+        }
+        return valid;
     }
 }
