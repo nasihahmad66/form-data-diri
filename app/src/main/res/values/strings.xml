@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Form Data Diri</string>
+    <string name="laki_laki">Laki-Laki</string>
+    <string name="perempuan">Perempuan</string>
 </resources>
