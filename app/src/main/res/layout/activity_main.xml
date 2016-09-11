@@ -7,6 +7,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/holo_orange_light"
         android:orientation="vertical"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -33,7 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:hint="Nomor Telfon" />
+            android:hint="Nomor Telfon"
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -80,7 +82,7 @@
 
             <CheckBox
                 android:id="@+id/checkBoxCoder"
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:checked="false"
@@ -88,7 +90,7 @@
 
             <CheckBox
                 android:id="@+id/checkBoxConceptor"
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
                 android:checked="false"
@@ -96,7 +98,7 @@
 
             <CheckBox
                 android:id="@+id/checkBoxDesign"
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:checked="false"
@@ -109,7 +111,7 @@
 
             <CheckBox
                 android:id="@+id/checkBoxDatabase"
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|bottom"
                 android:checked="false"
@@ -117,7 +119,7 @@
 
             <CheckBox
                 android:id="@+id/checkBoxAnalist"
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|bottom"
                 android:checked="false"
@@ -125,7 +127,7 @@
 
             <CheckBox
                 android:id="@+id/checkBoxTester"
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|bottom"
                 android:checked="false"
@@ -147,9 +149,10 @@
 
         <Button
             android:id="@+id/buttonTampil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
             android:layout_gravity="center_horizontal"
+            android:background="@android:color/holo_blue_light"
             android:text="Tampilkan" />
 
         <FrameLayout
@@ -165,9 +168,9 @@
 
             <TextView
                 android:id="@+id/textViewNama"
-                android:layout_width="70dp"
+                android:layout_width="228dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|top" />
+                android:layout_gravity="right|center_vertical" />
         </FrameLayout>
 
         <FrameLayout
@@ -184,9 +187,9 @@
 
             <TextView
                 android:id="@+id/textViewTelfon"
-                android:layout_width="70dp"
+                android:layout_width="229dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|top" />
+                android:layout_gravity="right|center_vertical" />
         </FrameLayout>
 
         <FrameLayout
@@ -203,9 +206,9 @@
 
             <TextView
                 android:id="@+id/textViewEmail"
-                android:layout_width="70dp"
+                android:layout_width="229dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|top" />
+                android:layout_gravity="right|top" />
         </FrameLayout>
 
         <FrameLayout
@@ -222,9 +225,9 @@
 
             <TextView
                 android:id="@+id/textViewJK"
-                android:layout_width="70dp"
+                android:layout_width="228dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|top" />
+                android:layout_gravity="right|top" />
         </FrameLayout>
 
         <FrameLayout
@@ -241,9 +244,9 @@
 
             <TextView
                 android:id="@+id/textViewBidang"
-                android:layout_width="70dp"
+                android:layout_width="228dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|top" />
+                android:layout_gravity="right|top" />
 
         </FrameLayout>
 
@@ -261,9 +264,9 @@
 
             <TextView
                 android:id="@+id/textViewKota"
-                android:layout_width="70dp"
+                android:layout_width="226dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|top" />
+                android:layout_gravity="right|top" />
 
         </FrameLayout>
 

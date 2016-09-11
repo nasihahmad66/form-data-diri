@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
             int starlen = bidang.length();
             String kota = spKota.getSelectedItem().toString();
 
-            tvNama.setText(nama);
-            tvTelfon.setText("" + telfon);
-            tvEmail.setText(email);
+            tvNama.setText(nama + "\n");
+            tvTelfon.setText("" + telfon + "\n");
+            tvEmail.setText(email + "\n");
 
             if (rgJK.getCheckedRadioButtonId() != -1) {
                 RadioButton rb = (RadioButton)
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 TView1.setError("Pilih Jenis Kelamin");
             } else {
                 TView1.setError(null);
-                tvJK.setText(JK);
+                tvJK.setText(JK + "\n");
             }
 
             if (cbConceptor.isChecked()) bidang += cbConceptor.getText() + "\n";
